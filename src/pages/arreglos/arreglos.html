@@ -1,0 +1,150 @@
+<div class="min-h-screen bg-gray-100 p-10">
+
+  <div class="max-w-6xl mx-auto space-y-10">
+
+    <!-- TÍTULO -->
+    <h1 class="text-4xl font-bold text-center text-indigo-600">
+      Laboratorio de Métodos de Arreglos (TypeScript)
+    </h1>
+
+    <!-- ARREGLO ORIGINAL -->
+    <div class="bg-white rounded-2xl shadow-lg p-6 grid gap-4">
+      <h2 class="text-xl font-semibold text-gray-700">
+        Arreglo Original
+      </h2>
+
+      <div class="bg-gray-50 rounded-xl p-4 font-mono text-indigo-600">
+        [
+        @for (number of numbers; track $index) {
+          {{ number }}{{ $last ? '' : ', ' }}
+        }
+        ]
+      </div>
+
+      <p class="text-sm text-gray-500">
+        length: {{ numbers.length }}
+      </p>
+    </div>
+
+    <!-- GRID DE MÉTODOS -->
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+
+      <!-- push -->
+      <div class="bg-white rounded-2xl shadow-md p-5 grid gap-3">
+        <h3 class="font-semibold text-blue-600">push()</h3>
+        <button
+          (click)="addNumber()"
+          class="bg-blue-500 text-white rounded-lg py-2 hover:bg-blue-600 transition">
+          Agregar 100
+        </button>
+      </div>
+
+      <!-- pop -->
+      <div class="bg-white rounded-2xl shadow-md p-5 grid gap-3">
+        <h3 class="font-semibold text-red-600">pop()</h3>
+        <button
+          (click)="removeLast()"
+          class="bg-red-500 text-white rounded-lg py-2 hover:bg-red-600 transition">
+          Eliminar último
+        </button>
+      </div>
+
+      <!-- shift -->
+      <div class="bg-white rounded-2xl shadow-md p-5 grid gap-3">
+        <h3 class="font-semibold text-yellow-600">shift()</h3>
+        <button
+          (click)="removeFirst()"
+          class="bg-yellow-500 text-white rounded-lg py-2 hover:bg-yellow-600 transition">
+          Eliminar primero
+        </button>
+      </div>
+
+      <!-- unshift -->
+      <div class="bg-white rounded-2xl shadow-md p-5 grid gap-3">
+        <h3 class="font-semibold text-green-600">unshift()</h3>
+        <button
+          (click)="addFirst()"
+          class="bg-green-500 text-white rounded-lg py-2 hover:bg-green-600 transition">
+          Agregar 0 al inicio
+        </button>
+      </div>
+
+      <!-- reverse -->
+      <div class="bg-white rounded-2xl shadow-md p-5 grid gap-3">
+        <h3 class="font-semibold text-orange-600">reverse()</h3>
+        <button
+          (click)="reverseNumbers()"
+          class="bg-orange-500 text-white rounded-lg py-2 hover:bg-orange-600 transition">
+          Invertir arreglo
+        </button>
+      </div>
+
+      <!-- map -->
+      <div class="bg-white rounded-2xl shadow-md p-5 grid gap-3">
+        <h3 class="font-semibold text-purple-600">map()</h3>
+        <button
+          (click)="doubleNumbers()"
+          class="bg-purple-500 text-white rounded-lg py-2 hover:bg-purple-600 transition">
+          Duplicar valores
+        </button>
+        <p class="text-sm font-mono text-purple-600">
+          {{ mappedNumbers }}
+        </p>
+      </div>
+
+      <!-- filter -->
+      <div class="bg-white rounded-2xl shadow-md p-5 grid gap-3">
+        <h3 class="font-semibold text-pink-600">filter()</h3>
+        <button
+          (click)="filterGreaterThanFive()"
+          class="bg-pink-500 text-white rounded-lg py-2 hover:bg-pink-600 transition">
+          Filtrar > 5
+        </button>
+        <p class="text-sm font-mono text-pink-600">
+          {{ filteredNumbers }}
+        </p>
+      </div>
+
+      <!-- slice -->
+      <div class="bg-white rounded-2xl shadow-md p-5 grid gap-3">
+        <h3 class="font-semibold text-teal-600">slice()</h3>
+        <button
+          (click)="sliceNumbers()"
+          class="bg-teal-500 text-white rounded-lg py-2 hover:bg-teal-600 transition">
+          Índices 1–4
+        </button>
+        <p class="text-sm font-mono text-teal-600">
+          {{ slicedNumbers }}
+        </p>
+      </div>
+
+      <!-- find -->
+      <div class="bg-white rounded-2xl shadow-md p-5 grid gap-3">
+        <h3 class="font-semibold text-indigo-600">find()</h3>
+        <button
+          (click)="findNumber()"
+          class="bg-indigo-500 text-white rounded-lg py-2 hover:bg-indigo-600 transition">
+          Buscar 3
+        </button>
+        <p class="text-sm font-mono text-indigo-600">
+          {{ foundNumber ?? 'No encontrado' }}
+        </p>
+      </div>
+
+      <!-- includes -->
+      <div class="bg-white rounded-2xl shadow-md p-5 grid gap-3">
+        <h3 class="font-semibold text-gray-700">includes()</h3>
+        <button
+          (click)="checkIncludes()"
+          class="bg-gray-700 text-white rounded-lg py-2 hover:bg-gray-800 transition">
+          ¿Incluye 4?
+        </button>
+        <p class="text-sm font-mono">
+          {{ includesFour !== null ? includesFour : '' }}
+        </p>
+      </div>
+
+    </div>
+
+  </div>
+</div>

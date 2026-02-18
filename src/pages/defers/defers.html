@@ -1,0 +1,19 @@
+<div class="w-full m-5 h-100">
+  @defer (on timer(1000)) {
+    <app-banner />
+  }@placeholder {
+    <h1 class="text-center font-light text-2xl"> Espera un momento</h1>
+  }
+</div>
+
+<div class="grid grid-cols-3 gap-2">
+
+  @for (item of [1,1,1,1,1,1,1,1,1,]; track $index) {
+
+    <app-card-product/>
+  }
+</div>
+
+<button class="bg-red-500 rounded-xl p-2 m-3 text-zinc-50 animate-bounce cursor-pointer hover:bg-purple-500">Reclamar ofertas</button>
+
+<app-cupones/>

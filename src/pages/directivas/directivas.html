@@ -1,0 +1,188 @@
+<div class="grid grid-cols-2">
+  <div class="bg-green-400 p-2 rounded-lg mt-2">
+    <h1 class="font-extralight text-2xl">
+      Directiva if
+    </h1>
+    @if(isActive){
+    <div class="bg-amber-400 m-2 p-2 w-1/3 text-center rounded">
+      ACTIVO
+    </div>
+    }@else {
+    <h2 class="text-center">Da click</h2>
+    }
+    <button (click)="activarUsuario()" class="bg-red-500 m-2 p-2 rounded-2xl cursor-pointer">
+      {{isActive ? 'Desactivar' : 'Activar' }}
+    </button>
+    <hr>
+  </div>
+
+  <div class="bg-pink-400 p-2 rounded-lg mt-2">
+    <h1 class="font-extralight text-2xl">
+      Menu principal: Hola {{role}}
+    </h1>
+    <hr>
+
+    <ul>
+      <li class="p-1 border w-1/2 rounded mt-1 hover:bg-pink-300 cursor-pointer">Usuarios</li>
+      <li class="p-1 border w-1/2 rounded mt-1 hover:bg-pink-300 cursor-pointer">Perfil</li>
+      @if(role === 'admin'){
+      <li class="p-1 border w-1/2 rounded mt-1 hover:bg-pink-300 cursor-pointer">Ventas</li>
+      <li class="p-1 border w-1/2 rounded mt-1 hover:bg-pink-300 cursor-pointer">Reportes</li>
+      }
+    </ul>
+    <button (click)="changeRole()" class="bg-blue-500 m-2 p-2 rounded-2xl cursor-pointer">
+      {{ role === 'admin' ? 'Cerrar sesión' : 'Iniciar como admin'}}
+    </button>
+  </div>
+
+  <!-- Directiva for -->
+
+  <div class="bg-indigo-400 rounded-lg m-2">
+    <h1>Directiva for</h1>
+    <hr>
+
+    @for (empleado of empleados; track empleado.id) {
+    <div class="bg-zinc-200 m-1 p-1 rounded-md">
+      <p>Nombre: {{empleado.nombre}}</p>
+      <hr>
+      @for(habilidad of empleado.habilidades; track $index){
+      <button class="bg-pink-400 p-1 m-1 rounded">{{habilidad}}</button>
+      }
+      <ol>
+        <li>Email: {{empleado.email}}</li>
+        <li>Puesto: {{ empleado.puesto}}</li>
+        <li>Edad: {{empleado.edad}} </li>
+
+        @if(empleado.activo){
+        <button class="bg-green-300 rounded mt-1 p-1">
+          Activo
+        </button>
+        }
+
+
+      </ol>
+
+    </div>
+    }@empty {
+    <h1 class="text-center text-2xl mt-3">No hay empleados actualmente</h1>
+    }
+
+    <button (click)="finiquitarEmpleados()" class="bg-red-500 rounded-md p-1 w-1/4">
+      Finiquitar
+    </button>
+
+    <button (click)="recuperarEmpleados()" class="bg-green-200 rounded-md p-1 w-1/4">
+      Recuperar
+    </button>
+
+    <button (click)="agregarEmpleado({
+      nombre: 'Damian Gomez',
+      activo: true,
+      edad: 21,
+      email: 'damian@gmail.com',
+      habilidades: ['Conducción'],
+      puesto: 'Repartidos',
+      id: 3,
+    })" class="bg-green-200 rounded-md p-1 w-1/4">
+      Agregar empleado
+    </button>
+  </div>
+
+  <div class="bg-orange-200 p-2 rounded-lg mt-2 grid grid-rows-2">
+    <div>
+      @for (emoji of emojis; track $index) {
+      <p>{{emoji}}</p>
+      }
+    </div>
+
+    <button (click)="agregarEmoji()" class="bg-green-200 rounded-md p-1 w-1/4 h-1/4 ">
+      Agregar emoji
+    </button>
+  </div>
+
+  <div class="bg-amber-300 rounded-lg m-2">
+    <h2 class="font-extralight text-2xl m-1">Directiva switch</h2>
+    <hr>
+    @switch ((codigo)) {
+      @case ('404') {
+        <h1 class="text-2xl text-center">
+          🔍 Not Found
+        </h1>
+      }
+
+      @case ('401') {
+        <h1 class="text-2xl text-center">
+          ⚠ Unauthorized
+        </h1>
+      }
+
+      @case ('500') {
+        <h1 class="text-2xl text-center">
+          ⚠ Internal server error
+        </h1>
+      }
+
+      @case ('200') {
+        <h1 class="text-2xl text-center">
+          ✅ Ok
+        </h1>
+      }
+
+      @case ('201') {
+        <h1 class="text-2xl text-center">
+          ✅ Creado
+        </h1>
+      }
+
+      @default {
+         <h1 class="text-2xl text-center">
+          Código desconocido
+        </h1>
+      }
+
+
+    }
+
+    @for (codigo of listaCodigos; track $index) {
+    <button (click)="describirCodigo(codigo)" class="bg-green-200 rounded-md p-1 w-1/4 h-1/4 ">
+      Poner codigo {{codigo}}
+    </button>
+    }
+
+
+  </div>
+
+  <div class="bg-amber-300 rounded-lg m-2 p-3 grid grid-rows-3">
+    <div class="w-3xl h-6 text-2xl">
+      @switch(felicidadActual){
+        @case (1) {
+          <h1>☹️</h1>
+        }
+        @case (2) {
+          <h1>😕</h1>
+        }
+        @case (3) {
+          <h1>😐</h1>
+        }
+        @case (4) {
+          <h1>🙂</h1>
+        }
+        @case (5) {
+          <h1>😀</h1>
+        }
+        @case (6) {
+          <h1>😁</h1>
+        }
+      }
+    </div>
+
+    <button (click)="modificarFelicidad(true)" class="bg-green-200 rounded-md p-1 w-1/4 h-auto ">
+      +
+    </button>
+
+    <button (click)="modificarFelicidad(false)" class="bg-red-200 rounded-md p-1 w-1/4 h-auto ">
+      -
+    </button>
+  </div>
+
+</div>
