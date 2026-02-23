@@ -1,3 +1,11 @@
+<button #registro class="bg-red-100 rounded-4xl p-5">
+  Registrate
+</button>
+
+@defer (on interaction(registro)) {
+  <app-form-registro/>
+}
+
 <div class="w-full m-5 h-100">
   @defer (on timer(1000)) {
     <app-banner />
@@ -29,3 +37,9 @@
   <h2>Pasa el mouse bajo tu propio riesgo</h2>
 }
 
+@defer(on viewport){
+
+  <app-comentarios/>
+}@placeholder {
+  <p>Comentarios</p>
+}
