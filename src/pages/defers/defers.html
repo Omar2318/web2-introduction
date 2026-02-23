@@ -14,6 +14,18 @@
   }
 </div>
 
-<button class="bg-red-500 rounded-xl p-2 m-3 text-zinc-50 animate-bounce cursor-pointer hover:bg-purple-500">Reclamar ofertas</button>
+<button #botonCupones class="bg-red-500 rounded-xl p-2 m-3 text-zinc-50 animate-bounce cursor-pointer hover:bg-purple-500">Reclamar ofertas</button>
 
-<app-cupones/>
+@defer(on interaction(botonCupones)){
+  <app-cupones/>
+}@placeholder {
+  <h1 class="text-center">Da click para ver tus ofertas</h1>
+}
+
+@defer (on hover) {
+
+  <app-contenido-sensible/>
+}@placeholder {
+  <h2>Pasa el mouse bajo tu propio riesgo</h2>
+}
+

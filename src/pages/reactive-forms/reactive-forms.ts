@@ -1,13 +1,9 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
 
 @Component({
-  selector: 'app-cupones',
+  selector: 'app-reactive-forms',
   imports: [],
-  templateUrl: './cupones.html',
+  templateUrl: './reactive-forms.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class Cupones {
-  constructor(){
-    console.log('cupones cargados')
-  }
- }
+export class ReactiveForms { }

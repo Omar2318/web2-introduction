@@ -1,13 +1,13 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
 
 @Component({
-  selector: 'app-cupones',
+  selector: 'app-contenido-sensible',
   imports: [],
-  templateUrl: './cupones.html',
+  templateUrl: './contenido-sensible.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class Cupones {
+export class ContenidoSensible {
   constructor(){
-    console.log('cupones cargados')
+    console.log('Componente contendio sensible')
   }
- }
+}

@@ -7,4 +7,5 @@ import { RouterLink } from "@angular/router";
   templateUrl: './navbar.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class Navbar { }
+export class Navbar {
+}
