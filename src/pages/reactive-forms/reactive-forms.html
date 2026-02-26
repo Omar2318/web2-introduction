@@ -1,19 +1,120 @@
-<div class="grid grid-cols-2 h-screen">
-  <div class="bg-amber-400 flex justify-center">
-    <form action="" class="flex flex-col w-10/12 space-y-2 p-2">
-      <input type="text" name="" id="" placeholder="Nombre: " class="bg-blue-100 p-2 rounded-2xl">
-      <input type="text" placeholder="Descripcion" id="" class="bg-blue-100 p-2 rounded-2xl">
-      <input type="number" placeholder="Precio" id="" class="bg-blue-100 p-2 rounded-2xl">
-      <input type="number" placeholder="Stock" id="" class="bg-blue-100 p-2 rounded-2xl">
+<div class="grid grid-rows-2">
 
-      <div class="flex justify-center">
+  <div class="grid grid-cols-2">
+    <div class="bg-amber-400 flex justify-center">
+      <form [formGroup]="productForm" (ngSubmit)="saveProduct()" action="" class="flex flex-col w-10/12 space-y-2 p-2">
+        <label for="">Nombre:</label>
+        <input type="text" formControlName="name" id="" class="bg-blue-100 p-2 rounded-2xl">
 
-        <button class="bg-red-200 rounded-3xl w-md">Enviar</button>
-      </div>
-    </form>
+        @if(productForm.get('name')?.errors && productForm.get('name')?.touched){
+
+          <p class="text-red-400 text-sm font-medium">El nombre es requerido</p>
+        }
+
+        <label for="">Descripción:</label>
+        <input formControlName="description"
+        type="text"  id="" class="bg-blue-100 p-2 rounded-2xl">
+
+        <label for="">Precio: </label>
+        <input formControlName="price"
+        type="number" id="" class="bg-blue-100 p-2 rounded-2xl">
+
+        @if(productForm.get('price')?.errors && productForm.get('price')?.touched){
+
+          <p class="text-red-400 text-sm font-medium">El precio es requerido</p>
+        }
+
+        <label for="">Stock: </label>
+        <input formControlName="stock"
+        type="number" id="" class="bg-blue-100 p-2 rounded-2xl">
+
+        @if(productForm.get('stock')?.errors && productForm.get('stock')?.touched){
+
+          <p class="text-red-400 text-sm font-medium">El stock es requerido</p>
+        }
+
+        <div class="flex justify-center">
+
+          <button
+          type="submit"
+          class="bg-red-400 rounded-3xl w-md cursor-pointer disabled:cursor-not-allowed disabled:bg-red-200">Enviar</button>
+
+        </div>
+      </form>
+    </div>
+
+    <div class="bg-amber-200 rounded-xl">
+      <h1>Propiedades del formulario</h1>
+      <hr>
+
+      <p class="mt-1 text-sm text-gray-700">
+        Valor del formulario:
+      </p>
+
+      <pre>
+        {{ productForm.value | json}}
+
+      </pre>
+
+      <p class="mt-1 text-sm text-gray-700">
+        Estado del formulario:
+      </p>
+
+      <pre>
+        {{ productForm.status }}
+      </pre>
+
+       <p class="mt-1 text-sm text-gray-700">
+        Es valido?:
+      </p>
+
+      <pre>
+        {{ productForm.valid }}
+      </pre>
+
+       <p class="mt-1 text-sm text-gray-700">
+        Es invalido?:
+      </p>
+
+      <pre>
+        {{ productForm.invalid }}
+      </pre>
+
+
+    </div>
+
+
   </div>
 
-  <div class="bg-amber-200">
+  <div class="bg-amber-50">
+    <div class="flex flex-row justify-center w-full">
 
+      <form action="" class="flex flex-col w-1/4 ">
+        <label for="">Nombre: </label>
+        <input type="text". class="bg-red-50 rounded-2xl p-2">
+
+        <label for="">Apellidos: </label>
+        <input type="text". class="bg-red-50 rounded-2xl p-2">
+
+        <label for="">Puesto: </label>
+
+        <select name="" id="" class="bg-amber-100 rounded-3xl p-3">
+          <option value="">Algo</option>
+          <option value="">Otro</option>
+          <option value="">Hola</option>
+        </select>
+
+        <label for="">Perfil academico: </label>
+        <textarea name="" id="". class="bg-red-50 rounded-2xl p-2"></textarea>
+
+        <label for="">Edad: </label>
+        <input type="number". class="bg-red-50 rounded-2xl p-2">
+
+        <button class="bg-blue-200 rounded-2xl p-2 m-4">
+          Guardar
+        </button>
+      </form>
+    </div>
   </div>
+
 </div>
