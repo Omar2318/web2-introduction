@@ -3,6 +3,7 @@ import { Directivas } from '../pages/directivas/directivas';
 import { Arreglos } from '../pages/arreglos/arreglos';
 import { Defers } from '../pages/defers/defers';
 import { ReactiveForms } from '../pages/reactive-forms/reactive-forms';
+import { Examen } from '../pages/examen/examen';
 
 export const routes: Routes = [
   {
@@ -20,6 +21,10 @@ export const routes: Routes = [
   {
     path: 'reactive-forms',
     component: ReactiveForms,
+  },
+  {
+    path: 'examen',
+    component: Examen,
   },
   {
     path: '**',

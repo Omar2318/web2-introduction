@@ -1,0 +1,31 @@
+
+@for (framework of frameworks; track $index) {
+  <h2 class="font-bold text-red-500">{{framework}}</h2>
+}@empty {
+  <h2 class="font-bold text-red-500">Error 404, framework no encontrados</h2>
+}
+
+<div class="flex justify-center">
+  <button (click)="clearFrameworks()"
+  class="bg-blue-500 text-white px-4 py-2 rounded cursor-pointer">
+  Vaciar Frameworks
+  </button>
+</div>
+
+<div class="flex flex-row justify-center p-5 mt-8">
+
+
+@defer (on hover) {
+  <div>
+    <img class="rounded-3xl" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRADinJVoHRhp3-W-W19zT0cNkq4CTiLrbB-g&s" alt="algo">
+  </div>
+}@placeholder {
+    <div class="flex flex-col items-center justify-center h-64 bg-gray-200 rounded-lg w-1/2">
+      <p class="text-2xl font-light text-gray-500">
+        Ver Spoiler
+      </p>
+
+    </div>
+}
+
+</div>
