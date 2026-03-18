@@ -38,6 +38,7 @@ export class ReactiveForms {
     email: {
       required: 'El correo electrónico es obligatorio',
       email: 'El correo electrónico no es válido',
+      pattern: 'Formato de correo no valido',
     },
     money: {
       required: 'El salario es obligatorio',
@@ -59,7 +60,7 @@ export class ReactiveForms {
       lastName: ['', Validators.required],
       perfil: ['', [Validators.required, Validators.minLength(30)]],
       edad: ['', [Validators.required, Validators.min(18), Validators.max(70)]],
-      email: ['', [Validators.required, Validators.email]],
+      email: ['', [Validators.required, Validators.pattern('^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}$')]],
       puesto: ['', Validators.required],
       money: ['', [Validators.required, Validators.min(30000)]],
     });

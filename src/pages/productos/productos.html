@@ -1,0 +1,78 @@
+<div class="grid grid-cols-2">
+  <div class="m-2 p-4 bg-zinc-50 rounded-xl shadow-lg border border-gray-300">
+
+    <h1 class="text-xl font-light">Nuevo producto</h1>
+    <hr class="text-gray-300 mb-4">
+
+    <form [formGroup]="formGroup">
+
+      <!-- Nombre -->
+      <label class="block mt-2 text-sm text-gray-700">
+        Nombre del producto:
+      </label>
+      <input type="text" formControlName="name"
+        class="w-full p-2 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-400">
+      <p class="text-red-500 text-sm mt-1">
+        {{ getErrorMessage('name') }}
+      </p>
+
+      <!-- Imagen URL -->
+      <label class="block mt-4 text-sm text-gray-700">
+        URL de la imagen:
+      </label>
+      <input type="text" formControlName="imageUrl"
+        class="w-full p-2 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-400">
+      <p class="text-red-500 text-sm mt-1">
+        {{ getErrorMessage('imageUrl') }}
+      </p>
+
+      <!-- Descripción -->
+      <label class="block mt-4 text-sm text-gray-700">
+        Descripción:
+      </label>
+      <textarea formControlName="description" rows="3"
+        class="w-full p-2 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-400"></textarea>
+      <p class="text-red-500 text-sm mt-1">
+        {{ getErrorMessage('description') }}
+      </p>
+
+      <!-- Stock -->
+      <label class="block mt-4 text-sm text-gray-700">
+        Stock disponible:
+      </label>
+      <input type="number" formControlName="stock"
+        class="w-full p-2 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-400">
+      <p class="text-red-500 text-sm mt-1">
+        {{ getErrorMessage('stock') }}
+      </p>
+
+      <!-- Precio de entrada -->
+      <label class="block mt-4 text-sm text-gray-700">
+        Precio de entrada:
+      </label>
+      <input type="number" formControlName="entryPrice"
+        class="w-full p-2 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-400">
+      <p class="text-red-500 text-sm mt-1">
+        {{ getErrorMessage('entryPrice') }}
+      </p>
+
+      <!-- Precio de salida -->
+      <label class="block mt-4 text-sm text-gray-700">
+        Precio de salida:
+      </label>
+      <input type="number" formControlName="exitPrice"
+        class="w-full p-2 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-400">
+      <p class="text-red-500 text-sm mt-1">
+        {{ getErrorMessage('exitPrice') }}
+      </p>
+
+      <!-- Botón -->
+      <button type="submit"
+        class="mt-6 w-full bg-blue-500 text-white py-2 rounded-lg hover:bg-blue-600 transition">
+        Guardar producto
+      </button>
+
+    </form>
+
+  </div>
+</div>
