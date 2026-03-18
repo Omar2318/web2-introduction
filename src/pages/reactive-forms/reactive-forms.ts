@@ -1,6 +1,7 @@
 import { JsonPipe } from '@angular/common';
 import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
+import { userValidator } from '../../app/validators/user-validator';
 
 @Component({
   selector: 'app-reactive-forms',
@@ -16,6 +17,11 @@ export class ReactiveForms {
   empleadoForm: FormGroup;
 
   validationMessages: any = {
+    userName: {
+      required: 'El nombre es obligatorio',
+      minlength: 'El nombre debe tener al menos 3 caracteres',
+      ocupado: 'El nombre de usuario ya esta en uso',
+    },
     name: {
       required: 'El nombre es obligatorio',
       minlength: 'El nombre debe tener al menos 3 caracteres',
@@ -63,6 +69,10 @@ export class ReactiveForms {
       email: ['', [Validators.required, Validators.pattern('^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}$')]],
       puesto: ['', Validators.required],
       money: ['', [Validators.required, Validators.min(30000)]],
+      userName: ['', [Validators.required, Validators.minLength(3)]],
+    },
+    {
+      validators: userValidator(),
     });
   }
 
